@@ -1,14 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Button from './components/Button';
-import Logo from './component/Logo'
+import Logo from './components/Logo'
+import ImageCard from './components/ImageCard';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* <Logo /> */}
+        <Logo />
         <Button />
+        <ImageCard />
       </View>
     );
   };

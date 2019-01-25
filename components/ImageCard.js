@@ -4,6 +4,10 @@ import { View } from 'react-native';
 const Card = () => {
     return (
         <View style={styles.containerStyle}>
+        <Image
+        style={{width: 300, height: 300}}
+        soutce={require('../assets/Verseuse_porcelaine_de_Limoges.jpg')}
+        />
         </View>
     );
 };
