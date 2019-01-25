@@ -1,15 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import Button from './components/Button'
+import Button from './components/Button';
+import Logo from './component/Logo'
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-        style={{ width: 200, height: 200 }}
-        source={require('./assets/theDishGrey.png')}
-        />
+        {/* <Logo /> */}
         <Button />
       </View>
     );
