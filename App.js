@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import Button from './components/Button'
 
 export default class App extends React.Component {
   render() {
@@ -9,6 +10,7 @@ export default class App extends React.Component {
         style={{ width: 200, height: 200 }}
         source={require('./assets/theDishGrey.png')}
         />
+        <Button />
       </View>
     );
   };
