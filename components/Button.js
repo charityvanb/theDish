@@ -1,14 +1,16 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 const Button = () => {
     const { buttonStyle } =styles;
     const { textStyle } =styles;
 
 return (
-<TouchableOpacity style={buttonStyle}>
- <Text style={textStyle}>Button time</Text>
-</TouchableOpacity>
+    <View style={[{height: 44, margin: 12}]}>
+    <TouchableOpacity style={buttonStyle}>
+        <Text style={textStyle}>Button time</Text>
+    </TouchableOpacity>
+    </View>
 );
 };
 
@@ -16,7 +18,7 @@ const styles = {
     textStyle: {
         alignSelf: 'center',
         color: '#4C4C4D',
-        fontSize: 20
+        fontSize: 24
     },
     buttonStyle: {
         flex: 1,
@@ -25,8 +27,8 @@ const styles = {
         borderRadius: 5,
         borderWidth: 5,
         borderColor: '#FDE9ED',
-        marginLeft: 10,
-        marginRight: 10,
+        marginLeft: 5,
+        marginRight: 14,
     }
 };
 
