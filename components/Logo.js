@@ -18,7 +18,7 @@ return(
                 marginTop: 20,
                 marginBottom: 20,
                 width: 200,
-                height: 200
+                height: 200,
          }
  };
 

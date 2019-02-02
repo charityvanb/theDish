@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import Button from './components/Button';
 import Logo from './components/Logo'
 import ImageCard from './components/ImageCard';
+import ImageGrid from './components/ImageGrid';
 
 export default class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ export default class App extends React.Component {
         <Logo />
         <Button />
         <ImageCard />
+        <ImageGrid />
       </View>
     );
   };
