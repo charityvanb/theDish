@@ -4,9 +4,10 @@ import Button from './components/Button';
 import Logo from './components/Logo'
 import ImageCard from './components/ImageCard';
 import ImageGrid from './components/ImageGrid';
-import {createStackNavigator, createAppNavigator} from 'react-navigation';
+import {createStackNavigator } from 'react-navigation';
+import ChoiceScreen from './screens/ChoiceScreen'
 
-export default class App extends React.Component {
+export default class ChoiceScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -19,7 +20,11 @@ export default class App extends React.Component {
   };
 };
 
-
+const AppStackNavigator = createStackNavigator({
+  Choice: {
+    screen:  ChoiceScreen 
+  }
+})
 
 const styles = StyleSheet.create({
   container: {
