@@ -5,24 +5,19 @@ import Logo from './components/Logo'
 import ImageCard from './components/ImageCard';
 import ImageGrid from './components/ImageGrid';
 import {createStackNavigator } from 'react-navigation';
-import ChoiceScreen from './screens/ChoiceScreen'
+import HomeScreen from './screens/HomeScreen';
 
-export default class ChoiceScreen extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Logo />
-        <Button />
-        <ImageCard />
-        <ImageGrid />
-      </View>
+      <AppStackNavigator />
     );
   };
 };
 
 const AppStackNavigator = createStackNavigator({
   Choice: {
-    screen:  ChoiceScreen 
+    screen:  HomeScreen 
   }
 })
 
