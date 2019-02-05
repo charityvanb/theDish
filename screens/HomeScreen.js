@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import 
+import { Actions } from 'react-native-router-flux'
 
 class HomeScreen extends Component {
     render() {

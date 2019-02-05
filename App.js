@@ -4,8 +4,8 @@ import Button from './components/Button';
 import Logo from './components/Logo'
 import ImageCard from './components/ImageCard';
 import ImageGrid from './components/ImageGrid';
-import {createStackNavigator } from 'react-navigation';
 import HomeScreen from './screens/HomeScreen';
+import { Router, Scene } from 'react-native-router-flux';
 
 export default class App extends React.Component {
   render() {
