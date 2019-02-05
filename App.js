@@ -7,19 +7,20 @@ import ImageGrid from './components/ImageGrid';
 import HomeScreen from './screens/HomeScreen';
 import { Router, Scene } from 'react-native-router-flux';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <AppStackNavigator />
-    );
-  };
-};
-
-const AppStackNavigator = createStackNavigator({
-  Choice: {
-    screen:  HomeScreen 
-  }
-})
+const App = () => {
+  return (
+    <Router>
+      <Scene key='root'>
+        <Scene
+          key='Home'
+          component={HomeScreen}
+          title='HomeScreen'
+          initial
+        />
+      </Scene>
+    </Router>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -29,3 +30,5 @@ const styles = StyleSheet.create({
     marginBottom: 40
   },
 });
+
+export default App;
