@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-class HomeScreen extends Component {
+class CheckDish extends Component {
     render() {
         return (
             <View style={styles.container}>
-            <Text
-            onPress={() => Actions.Check()}
-            >HomeScreen
-            </Text>
+            <Text>CheckDish</Text>
             </View>
         )
     }
@@ -24,4 +21,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default HomeScreen;
+export default CheckDish;
