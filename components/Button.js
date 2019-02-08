@@ -8,7 +8,7 @@ const Button = () => {
 return (
     <View style={[{height: 44, margin: 12}]}>
     <TouchableOpacity style={buttonStyle}>
-        <Text style={textStyle}>Button time</Text>
+        <Text style={textStyle}>Check a Dish</Text>
     </TouchableOpacity>
     </View>
 );
