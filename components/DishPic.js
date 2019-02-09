@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { Camera, Permissions } from 'expo';
+import { token } from '../config'
 
 export default class CameraExample extends React.Component {
   state = {
@@ -9,6 +10,7 @@ export default class CameraExample extends React.Component {
   };
 
   async componentDidMount() {
+    console.log(token)
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({ hasCameraPermission: status === 'granted' });
   }
@@ -18,7 +20,7 @@ export default class CameraExample extends React.Component {
     if (hasCameraPermission === null) {
       return <View />;
     } else if (hasCameraPermission === false) {
-      return <Text>No access to camera</Text>;
+      return <Text>Please grant access to camera</Text>;
     } else {
       return (
         <View style={{ flex: 1 }}>
