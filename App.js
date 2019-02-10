@@ -1,8 +1,6 @@
 
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import Button from './components/Button';
-import Logo from './components/Logo'
 import ImageCard from './components/ImageCard';
 import ImageGrid from './components/ImageGrid';
 import HomeScreen from './screens/HomeScreen';

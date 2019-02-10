@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 const Button = () => {
     const { buttonStyle } =styles;
@@ -8,7 +9,9 @@ const Button = () => {
 return (
     <View style={[{height: 44, margin: 12}]}>
     <TouchableOpacity style={buttonStyle}>
-        <Text style={textStyle}>Check a Dish</Text>
+        <Text style={textStyle}
+        onPress={() => Actions.Check()}
+        >Check a Dish</Text>
     </TouchableOpacity>
     </View>
 );
