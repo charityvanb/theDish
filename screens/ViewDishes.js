@@ -20,11 +20,11 @@ export default class ViewDishes extends React.Component {
     componentDidMount () {
 
         return fetch('https://limitless-woodland-39577.herokuapp.com/')
-            .then( (response) => response.json() )
-            .then( (reponseJson) => {
+            .then( dishes => dishes.json() )
+            .then( dishes => {
                 this.setState({
                     isLoading: false,
-                    dataSource: responseJson.dishes
+                    dataSource: dishes.dishes
                 })
             } )
             .catch((error) => {
