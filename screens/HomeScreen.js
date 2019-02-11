@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import Button from './../components/Button';
-import Logo from './../components/Logo';
+import ViewButton from './../components/ViewButton'
 
 class HomeScreen extends Component {
     render() {
         return (
-            <View style={styles.container}>
-            < Logo />
+            <View>
+        <Image
+        style={styles.LogoStyle}
+        source={require('../assets/theDishGrey.png')}
+        />
             < Button />
+            < ViewButton />
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
+
+    LogoStyle: {
+        alignSelf: 'center',
+        justifyContent: 'center',
+        marginTop: 20,
+        marginBottom: 20,
+        width: 200,
+        height: 200,
+ }
 
 })
 

@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-//import DishPic from './../components/DishPic'
 
-class CheckDish extends Component {
+
+class ViewDishes extends Component {
     render() {
         return (
             <View style={styles.container}>
-            <Text>CheckDish</Text>
+            <Text>ViewDishes</Text>
             </View>
         )
     }
@@ -22,4 +21,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default CheckDish;
+export default ViewDishes;
