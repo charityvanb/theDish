@@ -8,6 +8,7 @@ import { StyleSheet, View, Image, Text, ActivityIndicator } from 'react-native';
 //     });
 
 export default class ViewDishes extends React.Component {
+
     constructor(props) {
     super(props);
         this.state = {
@@ -17,9 +18,10 @@ export default class ViewDishes extends React.Component {
     }
 
     componentDidMount () {
+
         return fetch('https://limitless-woodland-39577.herokuapp.com/')
             .then( (response) => response.json() )
-            .then( (reponseJson) =>{
+            .then( (reponseJson) => {
                 this.setState({
                     isLoading: false,
                     dataSource: responseJson.dishes
