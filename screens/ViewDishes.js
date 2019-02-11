@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
+
+fetch('https://limitless-woodland-39577.herokuapp.com/')
+    .then((response) => response.text())
+    .then((responseText) => {
+        console.log(responseText)
+    });
 
 const ViewDishes = () => {
     return (
