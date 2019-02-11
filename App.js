@@ -5,6 +5,7 @@ import ImageCard from './components/ImageCard';
 import ImageGrid from './components/ImageGrid';
 import HomeScreen from './screens/HomeScreen';
 import ViewDishes from './screens/ViewDishes'
+import EditDishes from './screens/EditDishes'
 import CheckDish from './screens/CheckDish'
 import { Router, Scene } from 'react-native-router-flux';
 
@@ -27,6 +28,11 @@ const App = () => {
           key='View'
           component={ViewDishes}
           title='ViewDishes'
+        />
+        <Scene
+          key='Edit'
+          component={EditDishes}
+          title='EditDishes'
         />
       </Scene>
     </Router>
