@@ -3,9 +3,10 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import ImageCard from './components/ImageCard';
 import ImageGrid from './components/ImageGrid';
 import HomeScreen from './screens/HomeScreen';
-import ViewDishes from './screens/ViewDishes'
-import EditDishes from './screens/EditDishes'
-import CheckDish from './screens/CheckDish'
+import ViewDishes from './screens/ViewDishes';
+import EditDishes from './screens/EditDishes';
+import CheckDish from './screens/CheckDish';
+import CameraScreen from './screens/CameraScreen';
 import { Router, Scene } from 'react-native-router-flux';
 
 const App = () => {
@@ -32,6 +33,11 @@ const App = () => {
           key='Edit'
           component={EditDishes}
           title='EditDishes'
+        />
+        <Scene
+          key='CameraScreen'
+          component={CameraScreen}
+          title='CameraScreen'
         />
       </Scene>
     </Router>

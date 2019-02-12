@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import Button from './../components/Button';
-import ViewButton from './../components/ViewButton'
+import Button from '../components/Button';
+import CameraButton from '../components/CameraButton';
+import ViewButton from '../components/ViewButton'
 
 class HomeScreen extends Component {
     render() {
@@ -12,7 +13,8 @@ class HomeScreen extends Component {
         source={require('../assets/theDishGrey.png')}
         />
             < Button />
-            < ViewButton />
+            {/* < ViewButton /> */}
+            < CameraButton />
             </View>
         )
     }

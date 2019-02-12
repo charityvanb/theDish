@@ -1,12 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text, ActivityIndicator } from 'react-native';
 
-// fetch('https://limitless-woodland-39577.herokuapp.com/')
-//     .then((response) => response.text())
-//     .then((responseText) => {
-//         console.log(responseText)
-//     });
-
 export default class ViewDishes extends React.Component {
 
     constructor(props) {
@@ -43,9 +37,17 @@ render() {
 
         } else {
 
+            let dishes = this.state.dataSource.map((val, key) => {
+                return ( <View key={key} style={styles.containerStyle}>
+                    <Text>{val.uploader}</Text>
+                    </View>
+                )
+                }
+            )
+
         return (
             <View style={styles.containerStyle}>
-            <Text>Stuff Goes Here</Text>
+            {dishes}
             </View>
         )
         }
