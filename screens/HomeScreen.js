@@ -12,9 +12,11 @@ class HomeScreen extends Component {
         style={styles.LogoStyle}
         source={require('../assets/theDishGrey.png')}
         />
-            < Button />
-            {/* < ViewButton /> */}
+            < ViewButton />
             < CameraButton />
+            <Image
+            // source={require('../assets/graycupsm.jpg')}
+            />
             </View>
         )
     }

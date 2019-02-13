@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Image, Text, ActivityIndicator, FlatList } from 'react-native';
 
 export default class ViewDishes extends React.Component {
 
@@ -16,6 +16,7 @@ export default class ViewDishes extends React.Component {
         return fetch('https://limitless-woodland-39577.herokuapp.com/')
             .then( dishes => dishes.json() )
             .then( dishes => {
+                console.log(dishes.dishes)
                 this.setState({
                     isLoading: false,
                     dataSource: dishes.dishes
@@ -37,13 +38,25 @@ render() {
 
         } else {
 
-            let dishes = this.state.dataSource.map((val, key) => {
-                return ( <View key={key} style={styles.containerStyle}>
-                    <Text>{val.uploader}</Text>
-                    </View>
+        let dishes = this.state.dataSource.map((val, key) => {
+            return ( <View key={key} style={styles.containerStyle}>
+            <Image
+            style={styles.imageStyle}
+            source={{uri: val.url}}
+            />
+                    <Text style={styles.textStyle}>uploaded by: {val.uploader}</Text>
+            </View>
                 )
                 }
             )
+{/* <FlatList
+          data={this.state.dataSource}
+          showsVerticalScrollIndicator={false}
+          renderItem={({item}) =>
+          <View style={styles.flatview}>
+            <Text style={styles.name}>{item.name}</Text>
+            <Text style={styles.email}>{item.email}</Text>
+          </View> */}
 
         return (
             <View style={styles.containerStyle}>
@@ -80,6 +93,18 @@ const styles = {
         shadowRadius: 5,
         marginLeft: 10,
         marginRight: 10,
-        marginTop: 10
+        marginTop: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    textStyle: {
+        textAlign: 'center'
+    },
+    imageStyle: {
+        width: 300,
+        height: 300,
+        marginTop: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 };
