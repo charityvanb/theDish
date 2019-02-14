@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Alert } from 'react-native';
 import { Camera, Permissions } from 'expo';
 import { token, id } from '../config';
 
@@ -39,7 +39,23 @@ findDish = async(photo) => {
         .then(response => {
           var result = response.records[0].best_label.name
           var dishName = result.slice(0, 10)
+
+          if (dishName === 'orangeDish') {
+            dishName =  'Authentic orange Galvanize dish'
+
+          } else {
+            dishName =  'Authentic white Galvanize dish'
+          }
+          
           console.log(dishName)
+          Alert.alert(
+            'Results:',
+             dishName,
+            [
+              {text: 'OK', onPress: () => console.log('OK Pressed')},
+            ],
+            {cancelable: false},
+          );
 
             // this.mapPlates(response.records[0].best_label.name)
         });
