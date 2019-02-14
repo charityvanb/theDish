@@ -37,8 +37,10 @@ findDish = async(photo) => {
             return response.json();
         })
         .then(response => {
-          console.log('test', response.records[0].best_label.name)
-          
+          var result = response.records[0].best_label.name
+          var dishName = result.slice(0, 10)
+          console.log(dishName)
+
             // this.mapPlates(response.records[0].best_label.name)
         });
       }
