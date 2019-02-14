@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import { Camera, Permissions } from 'expo';
 import { token, id } from '../config';
 
+
 export default class CameraScreen extends React.Component {
 
   state = {
@@ -40,21 +41,22 @@ findDish = async(photo) => {
             // this.mapPlates(response.records[0].best_label.name)
         });
       }
+     // if response.records[0].best_label.name contains test orangeDish return Real
+     // else return Fake
 
-      // snap = async () => {
-      //   if (this.camera) {
-      //     let photo = await this.camera.takePictureAsync();
-      //   }
-      // }
+
+    //   mapthroughWildflowers(result) {
+    //     const filteredFlower = this.state.flowers.filter(flower => flower.name === result)[0];
+    //     return Actions.wildflower({ title: filteredFlower.name, flower: filteredFlower.name, imageUrl: filteredFlower.image, family: filteredFlower.family, description: filteredFlower.description });
+    // }
+
       snap = async () => {
-        console.log("hey")
         if (this.camera) {
             await this.camera.takePictureAsync({ quality: .1, base64: true })
                 .then(photo => {
                     this.findDish(photo.base64);
                 })
         }
-        console.log("thingy")
     }
 
   render() {
@@ -80,18 +82,45 @@ findDish = async(photo) => {
                 flexDirection: 'row',
               }}>
 
-
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   onPress={this.snap.bind(this)} >
                   <Text>Take photo</Text>
+                </TouchableOpacity> */}
+                <View style={[{height: 44, margin: 12}]}>
+                <TouchableOpacity
+                  style={styles.buttonStyle}
+                  onPress={this.snap.bind(this)} >
+                  <Text style={styles.textStyle}
+                  >Check</Text>
                 </TouchableOpacity>
+                </View>
 
 
             </View>
           </Camera>
         </View>
-// set to state
       );
     }
+  }
+}
+
+const styles = {
+
+  textStyle: {
+      alignSelf: 'center',
+      color: '#4C4C4D',
+      fontSize: 24
+  },
+  buttonStyle: {
+      flex: 1,
+      alignSelf: 'center',
+      backgroundColor:'#FDE9ED',
+      borderRadius: 5,
+      borderWidth: 5,
+      borderColor: '#FDE9ED',
+      marginLeft: 18,
+      marginRight: 18,
+      justifyContent: 'center',
+      alignItems: 'center'
   }
 }
