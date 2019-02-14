@@ -82,11 +82,7 @@ findDish = async(photo) => {
                 flexDirection: 'row',
               }}>
 
-                {/* <TouchableOpacity
-                  onPress={this.snap.bind(this)} >
-                  <Text>Take photo</Text>
-                </TouchableOpacity> */}
-                <View style={[{height: 44, margin: 12}]}>
+                <View style={styles.bottom}>
                 <TouchableOpacity
                   style={styles.buttonStyle}
                   onPress={this.snap.bind(this)} >
@@ -122,5 +118,13 @@ const styles = {
       marginRight: 18,
       justifyContent: 'center',
       alignItems: 'center'
+  },
+    
+    bottom: {
+      flex: 1,
+      justifyContent: 'flex-end',
+      marginBottom: 36,
+      height: 44,
+      margin: 12
+      }
   }
-}
