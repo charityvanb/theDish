@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text, ActivityIndicator, FlatList } from 'react-native';
+import { StyleSheet, View, Image, Text, ActivityIndicator, FlatList, SafeAreaView } from 'react-native';
 
 export default class ViewDishes extends React.Component {
 
-    constructor(props) {
+constructor(props) {
     super(props);
         this.state = {
             isLoading: true,
@@ -31,56 +31,40 @@ render() {
     if (this.state.isLoading) {
 
         return (
+        <SafeAreaView style={{flex: 1, backgroundColor: '#FFFFFF'}}>
         <View style={styles.containerStyle}>
         <ActivityIndicator />
         </View>
+        </SafeAreaView>
         )
 
         } else {
 
-        let dishes = this.state.dataSource.map((val, key) => {
-            return ( <View key={key} style={styles.containerStyle}>
-            <Image
-            style={styles.imageStyle}
-            source={{uri: val.url}}
-            />
-                    <Text style={styles.textStyle}>uploaded by: {val.uploader}</Text>
-            </View>
-                )
-                }
-            )
-{/* <FlatList
-          data={this.state.dataSource}
-          showsVerticalScrollIndicator={false}
-          renderItem={({item}) =>
-          <View style={styles.flatview}>
-            <Text style={styles.name}>{item.name}</Text>
-            <Text style={styles.email}>{item.email}</Text>
-          </View> */}
+            return (
+                <SafeAreaView style={{flex: 1, backgroundColor: '#FFFFFF'}}>
+                <View style={styles.containerStyle} >
+                    <FlatList
+                    data={this.state.dataSource}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({item}) =>
+                    <View style={styles.flatview}>
+                    <Image
+                        style={styles.imageStyle}
+                        source={{uri: item.url}}
+                    />
+                    <Text style={styles.textStyle}>uploaded by: {item.uploader}</Text>
+                    </View>
+                    }
+                    keyExtractor={item => item.email}
+                  />
+                </View>
+                </SafeAreaView>
+              );
+            }
+          }
+  }
 
-        return (
-            <View style={styles.containerStyle}>
-            {dishes}
-            </View>
-        )
-        }
-    }
-}
-    // return (
-    //     <View style={styles.containerStyle}>
-    //     <Image
-    //     style={{width: 300, height: 300}}
-    //     source={require('../assets/Verseuse_porcelaine_de_Limoges.jpg')}
-    //     />
-    //     <Text>
-    //         Limoges
-    //     </Text>
-    //     <Text>
-    //         CVB
-    //     </Text>
-    //     </View>
-    // );
-// };
+
 
 const styles = {
     containerStyle: {
@@ -106,5 +90,10 @@ const styles = {
         marginTop: 10,
         justifyContent: 'center',
         alignItems: 'center'
-    }
-};
+    },
+    flatview: {
+        justifyContent: 'center',
+        paddingTop: 30,
+        borderRadius: 2,
+      },
+}

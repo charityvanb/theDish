@@ -1,13 +1,14 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { Camera, Permissions } from 'expo';
-import { token } from '../config';
+import { token, id } from '../config';
 
 export default class CameraScreen extends React.Component {
 
   state = {
     hasCameraPermission: null,
     type: Camera.Constants.Type.back,
+
     dishes: '',
   };
 
@@ -16,9 +17,9 @@ export default class CameraScreen extends React.Component {
     this.setState({ hasCameraPermission: status === 'granted' });
   }
   
-  async findDish(photo) {
+findDish = async(photo) => {
     let obj = {
-        "task_id": config.id,
+        "task_id": id,
         "records": [{ "_base64": photo }]
     }
 
@@ -35,23 +36,26 @@ export default class CameraScreen extends React.Component {
             return response.json();
         })
         .then(response => {
-            this.mapPlates(response.records[0].best_label.name)
+          console.log('test', response.records[0].best_label.name)
+            // this.mapPlates(response.records[0].best_label.name)
         });
       }
 
+      // snap = async () => {
+      //   if (this.camera) {
+      //     let photo = await this.camera.takePictureAsync();
+      //   }
+      // }
       snap = async () => {
+        console.log("hey")
         if (this.camera) {
-          let photo = await this.camera.takePictureAsync();
+            await this.camera.takePictureAsync({ quality: .1, base64: true })
+                .then(photo => {
+                    this.findDish(photo.base64);
+                })
         }
-      }
-    //   async snap() {
-    //     if (this.camera) {
-    //         await this.camera.takePictureAsync({ quality: .1, base64: true })
-    //             .then(photo => {
-    //                 this.identifyWildflower(photo.base64);
-    //             })
-    //     }
-    // }
+        console.log("thingy")
+    }
 
   render() {
     const { hasCameraPermission } = this.state;
@@ -66,39 +70,27 @@ export default class CameraScreen extends React.Component {
 
       return (
         <View style={{ flex: 1 }}>
-          <Camera style={{ flex: 1 }} type={this.state.type}>
+          <Camera style={{ flex: 1 }}
+          type={this.state.type}
+          ref={ref => { this.camera = ref; }}>
             <View
               style={{
                 flex: 1,
                 backgroundColor: 'transparent',
                 flexDirection: 'row',
               }}>
-              <TouchableOpacity
-                style={{
-                  flex: 0.1,
-                  alignSelf: 'flex-end',
-                  alignItems: 'center',
-                }}
-                onPress={() => {
-                  this.setState({
-                    type: this.state.type === Camera.Constants.Type.back
-                      ? Camera.Constants.Type.front
-                      : Camera.Constants.Type.back,
-                  });
-                }}>
+
+
                 <TouchableOpacity
-                  onPress={this.takePicture.bind(this)} >
+                  onPress={this.snap.bind(this)} >
                   <Text>Take photo</Text>
                 </TouchableOpacity>
-                
-                <Text
-                  style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>
-                  {' '}Flip{' '}
-                </Text>
-              </TouchableOpacity>
+
+
             </View>
           </Camera>
         </View>
+// set to state
       );
     }
   }
