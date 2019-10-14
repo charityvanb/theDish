@@ -46,7 +46,7 @@ findDish = async(photo) => {
           } else {
             dishName =  'Authentic white Galvanize dish'
           }
-          
+
           console.log(dishName)
           Alert.alert(
             'Results:',
@@ -60,14 +60,7 @@ findDish = async(photo) => {
             // this.mapPlates(response.records[0].best_label.name)
         });
       }
-     // if response.records[0].best_label.name contains test orangeDish return Real
-     // else return Fake
 
-
-    //   mapthroughWildflowers(result) {
-    //     const filteredFlower = this.state.flowers.filter(flower => flower.name === result)[0];
-    //     return Actions.wildflower({ title: filteredFlower.name, flower: filteredFlower.name, imageUrl: filteredFlower.image, family: filteredFlower.family, description: filteredFlower.description });
-    // }
 
       snap = async () => {
         if (this.camera) {
